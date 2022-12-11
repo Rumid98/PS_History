@@ -14,8 +14,6 @@ for i in range(1, n+1):  # 합 배열을 m으로 나눈 나머지 값으로 upda
 for i in range(1, n+1):  # 0 ~ m까지 나머지의 개수 count
     info[sums[i] % m] += 1
 for i in range(m):
-    if info[i] == 1:
-        answer += 1
-    elif info[i] >= 2:
+    if info[i] >= 2:
         answer += int((info[i]) * (info[i]-1) / 2)  # nC2 계산
-stdout.write(str(answer+info[0]))
+stdout.write(str(info[0]+answer))
