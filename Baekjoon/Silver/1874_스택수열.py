@@ -28,3 +28,4 @@ if idx == n:
     sys.stdout.write(answer)
 else:
     sys.stdout.write("NO")
+    
