@@ -1,0 +1,12 @@
+T = int(input())
+answer = []
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+for test_case in range(1, T + 1):
+    l, u, x = map(int, input().split())
+    if x < l:
+        answer.append(f'#{test_case} {l - x}')
+    elif x > u:
+        answer.append(f'#{test_case} -1')
+    else:
+        answer.append(f'#{test_case} 0')
+print('\n'.join(answer))
