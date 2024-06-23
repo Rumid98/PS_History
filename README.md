@@ -1,6 +1,5 @@
 # PS_History
 
-2024. Run for Platinum.
-Problem Solving code history.
+Problem Solving code history. "2024" Run for Platinum.
 > Most : Baekjoon   
 > Others : Programmers, Goorm, CodeForce, etc.   
