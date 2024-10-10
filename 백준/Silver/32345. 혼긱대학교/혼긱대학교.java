@@ -24,7 +24,7 @@ public class Main {
             result = -1;
         }
 
-        return result % (1000000007);
+        return result;
     }
 
 
