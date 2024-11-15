@@ -1,40 +1,34 @@
 import sys
 sys.setrecursionlimit(10**6)
-def input(): return sys.stdin.readline().strip()
+input = sys.stdin.readline
 
 
-def main():
-    n = int(input())
-    m = int(input())
-    connect = [list(map(int, input().split())) for _ in range(n)]
-    info = list(map(int, input().split()))
-    parent = [i for i in range(n+1)]
+n = int(input())
+m = int(input())
+info = [list(map(int, input().split())) for _ in range(n)]
+parent = [i for i in range(n+1)]
 
-    def union(x, y):
-        root_x = find(x)
-        root_y = find(y)
-        if root_x < root_y:
-            parent[root_y] = root_x
-        else:
-            parent[root_x] = root_y
-
-    def find(x):
-        if x == parent[x]:
-            return x
-        parent[x] = find(parent[x])
-        return parent[x]
-
-    for i in range(n):
-        for j in range(i+1, n):
-            if connect[i][j] == 1:
-                union(i+1, j+1)
-    for i in range(m-1):
-        if find(info[i]) != find(info[i+1]):
-            print('NO')
-            break
+def union(a, b):
+    a, b = find(a), find(b)
+    if a != b:
+        parent[b] = a
+    
+def find(v):
+    if v == parent[v]:
+        return v
     else:
-        print('YES')
+        parent[v] = find(parent[v])
+        return parent[v]
 
-
-if __name__ == "__main__":
-    main()
+for i in range(n):
+    for j in range(i+1, n):
+        if info[i][j] == 1:
+            union(i+1, j+1)
+cities = list(map(int, input().split()))
+city = find(cities[0])
+for x in cities[1:]:
+    if find(x) != city:
+        print('NO')
+        break
+else:
+    print('YES')
